@@ -1,0 +1,16 @@
+# 監視対象サービスの定義。
+# 後からサービスを追加する場合は、このファイルにエントリを足すだけでよい
+# (type: statuspage = Statuspage形式のAPI / type: http = HTTP到達チェック)。
+# パーサは main.py 内の簡易実装のため、値はプレーンな文字列のみ対応。
+services:
+  - id: claude
+    name: Claude
+    type: statuspage
+    status_url: https://status.claude.com/api/v2/status.json
+    components_url: https://status.claude.com/api/v2/components.json
+    page_url: https://status.claude.com
+  - id: muse
+    name: Meta Muse
+    type: http
+    check_url: https://muse.ai
+    page_url: https://muse.ai

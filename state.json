@@ -2,9 +2,9 @@
   "version": 1,
   "services": {
     "claude": {
-      "level": "outage",
+      "level": "degraded",
       "components": {
-        "claude.ai": "major_outage",
+        "claude.ai": "degraded_performance",
         "Claude Platform on AWS": "operational",
         "Claude Console (platform.claude.com)": "operational",
         "Claude in Microsoft Foundry": "operational",
@@ -14,15 +14,15 @@
         "Claude Cowork": "degraded_performance",
         "Claude for Government": "operational"
       },
-      "changed_at": "2026-11-13T20:15:53+09:00",
-      "last_check": "2026-11-13T20:15:53+09:00",
+      "changed_at": "2026-11-14T03:31:30+09:00",
+      "last_check": "2026-11-14T03:31:30+09:00",
       "fetch_error": false
     },
     "muse": {
       "level": "ok",
       "components": {},
       "changed_at": "2026-11-13T20:15:53+09:00",
-      "last_check": "2026-11-13T20:15:53+09:00",
+      "last_check": "2026-11-14T03:31:30+09:00",
       "fetch_error": false
     }
   }

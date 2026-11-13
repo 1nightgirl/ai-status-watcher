@@ -1,4 +1,29 @@
 {
   "version": 1,
-  "services": {}
+  "services": {
+    "claude": {
+      "level": "outage",
+      "components": {
+        "claude.ai": "major_outage",
+        "Claude Platform on AWS": "operational",
+        "Claude Console (platform.claude.com)": "operational",
+        "Claude in Microsoft Foundry": "operational",
+        "Claude API (api.anthropic.com)": "operational",
+        "Claude Models on Google Cloud (Anthropic managed)": "operational",
+        "Claude Code": "operational",
+        "Claude Cowork": "degraded_performance",
+        "Claude for Government": "operational"
+      },
+      "changed_at": "2026-11-13T20:15:53+09:00",
+      "last_check": "2026-11-13T20:15:53+09:00",
+      "fetch_error": false
+    },
+    "muse": {
+      "level": "ok",
+      "components": {},
+      "changed_at": "2026-11-13T20:15:53+09:00",
+      "last_check": "2026-11-13T20:15:53+09:00",
+      "fetch_error": false
+    }
+  }
 }

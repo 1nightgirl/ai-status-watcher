@@ -1,0 +1,45 @@
+name: Check AI Service Status
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-status-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: python main.py
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Commit state.json if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          if git diff --staged --quiet; then
+            echo "state.json に変化はありません"
+            exit 0
+          fi
+          old=$(git show HEAD:state.json 2>/dev/null | jq -S 'walk(if type == "object" then del(.last_check) else . end)' || echo "")
+          new=$(jq -S 'walk(if type == "object" then del(.last_check) else . end)' state.json)
+          if [ "$old" = "$new" ]; then
+            echo "last_check のみの変化のためコミットしません"
+            exit 0
+          fi
+          git commit -m "Update state.json"
+          git push

@@ -2,27 +2,27 @@
   "version": 1,
   "services": {
     "claude": {
-      "level": "degraded",
+      "level": "ok",
       "components": {
-        "claude.ai": "degraded_performance",
+        "claude.ai": "operational",
         "Claude Platform on AWS": "operational",
         "Claude Console (platform.claude.com)": "operational",
         "Claude in Microsoft Foundry": "operational",
         "Claude API (api.anthropic.com)": "operational",
         "Claude Models on Google Cloud (Anthropic managed)": "operational",
         "Claude Code": "operational",
-        "Claude Cowork": "degraded_performance",
+        "Claude Cowork": "operational",
         "Claude for Government": "operational"
       },
-      "changed_at": "2026-11-14T03:31:30+09:00",
-      "last_check": "2026-11-14T03:31:30+09:00",
+      "changed_at": "2026-11-14T08:48:32+09:00",
+      "last_check": "2026-11-14T08:48:32+09:00",
       "fetch_error": false
     },
     "muse": {
       "level": "ok",
       "components": {},
       "changed_at": "2026-11-13T20:15:53+09:00",
-      "last_check": "2026-11-14T03:31:30+09:00",
+      "last_check": "2026-11-14T08:48:32+09:00",
       "fetch_error": false
     }
   }
